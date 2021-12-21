@@ -1,11 +1,27 @@
-import React from 'react'
+import React from "react";
+import useStarData from "./../data/useStarData";
+import { useParams } from "react-router-dom";
+import Error from '../components/Error';
+import Loading from '../components/loading/Loading';
+import StarMegaCard from "../components/StarMegaCard";
+import { useNavigate  } from "react-router-dom";
+
 
 const Detail = () => {
-    return (
-        <div>
-            Detail
-        </div>
-    )
-}
+  let { id } = useParams();
+  const { star, error, loading } = useStarData(id);
 
-export default Detail
+  let navigate = useNavigate();
+
+  return (
+    <>
+      {error && <Error />}
+      {!error && loading ? (
+        <Loading />
+      ) : ( <StarMegaCard star={star} navigate={navigate} />
+      )}
+    </>
+  );
+};
+
+export default Detail;

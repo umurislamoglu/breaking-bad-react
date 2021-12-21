@@ -3,12 +3,12 @@ import { Card , CardMedia , CardContent , Typography , CardActions , Button  } f
 import { Link } from 'react-router-dom'
 
 
-const StarCard = ({actor}) => {
+const StarCard = ({star}) => {
 
-    const {name , img , char_id} = actor
+    const {name , img , char_id} = star
 
     return (
-        <Card sx={{ maxWidth: 345 , mx: 2 , my: 3 ,}}>
+        <Card elevation={4} sx={{ maxWidth: 345 , mx: 2 , my: 3 ,}}>
         <CardMedia
           component="img"
           height="500"

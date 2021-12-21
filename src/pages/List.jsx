@@ -14,8 +14,8 @@ const List = () => {
         {!error && loading ? (
           <Loading />
         ) : (
-          cast.map((actor) => {
-            return <StarCard actor={actor} />;
+          cast.map((star , keyValue) => {
+            return <StarCard key={keyValue} star={star} />;
           })
         )}
       </Grid>
